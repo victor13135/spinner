@@ -46,12 +46,17 @@ let prevS, tenth=0;
 
 setInterval(() => {
     
+    divRightHalfh.style.zIndex=35;
+    divLeftMaskh.style.transform=`rotate(0deg)`;
+    divRightMaskh.style.transform=`rotate(0deg)`;
+
+    divRightHalfm.style.zIndex=35;
+    divLeftMaskm.style.transform=`rotate(0deg)`;
+    divRightMaskm.style.transform=`rotate(0deg)`;
+    
+    divRightHalfs.style.zIndex=35;
     divLeftMasks.style.transform=`rotate(0deg)`;
     divRightMasks.style.transform=`rotate(0deg)`;
-    divRightMasks.style.zIndex=40;
-    divRightHalfs.style.zIndex=35;
-    divLeftMasks.style.zIndex=50;
-    divLeftHalfs.style.zIndex=45;
     
     let date = new Date();
     h = date.getHours();
@@ -60,12 +65,12 @@ setInterval(() => {
 
     angleS = 6*s+6;
     angleM = 6*m + s/10;
-    angleH = (h%12) * h*15 + m/2;
+    angleH = (h%12) * 30 + m/2;
 
     divCenterMaskh.textContent = returnTwoCharacterString(h);
     divCenterMaskm.textContent = returnTwoCharacterString(m);
     divCenterMasks.textContent = returnTwoCharacterString(s);
-    console.log(angleS);
+    
     if(angleS >6 && angleS<=180) {
         divRightMasks.style.transform=`rotate(${angleS-6}deg)`;
     } else if (angleS >6 && angleS<=360) {
@@ -88,13 +93,15 @@ setInterval(() => {
         divRightMaskm.style.transform=`rotate(-180deg)`;
     }
 
-    if(angleH<=180) {
-        divRightMaskh.style.transform=`rotate(${angleH}deg)`;
-    } else if (angleM<360) {
+    if(angleH >6 && angleH<=180) {
+        divRightMaskh.style.transform=`rotate(${angleH-6}deg)`;
+    } else if (angleH >6 && angleH<=360) {
         divRightHalfh.style.zIndex = 60;
-        divLeftMaskh.style.transform=`rotate(${angleH-180}deg)`;
+        divLeftMaskh.style.transform=`rotate(${angleH-180-6}deg)`;
     } else {
-        divRightHalfh.style.zIndex = 35;
+        divRightHalfh.style.zIndex = 60;
+        divLeftMaskh.style.transform=`rotate(180deg)`;
+        divRightMaskh.style.transform=`rotate(-180deg)`;
     }
 
     // divRightMask.style.backgroundColor="green";
