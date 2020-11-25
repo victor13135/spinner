@@ -134,12 +134,15 @@ body {
 
 #rightMask, #rightMaskh, #rightMaskm, #rightMasks {
     z-index: 40;
+    opacity: 0.75;
 }
 #rightHalf, #rightHalfh, #rightHalfm, #rightHalfs {
     z-index: 35;
+
 }
 #leftMask, #leftMaskh, #leftMaskm, #leftMasks {
     z-index: 50;
+    opacity: 0.75;
 }
 #leftHalf, #leftHalfh, #leftHalfm, #leftHalfs {
     z-index: 45;
